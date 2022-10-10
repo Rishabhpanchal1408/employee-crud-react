@@ -4,7 +4,7 @@ import Tr from './Tr'
 const TableData = ({ Employees, updateEmployee, deleteEmployee }) => {
     return (
         <>
-            <table className='container table table-bordered mt-5'>
+            <table className='table table-bordered'>
                 <thead>
                     <tr>
                         <td><b>Employee ID</b></td>
@@ -12,6 +12,7 @@ const TableData = ({ Employees, updateEmployee, deleteEmployee }) => {
                         <td><b>Employee Email </b></td>
                         <td><b>Employee Gender</b></td>
                         <td><b>Employee Contact</b></td>
+                        <td><b>Employee language</b></td>
                         <td><b>Actions</b></td>
                     </tr>
                 </thead>

@@ -18,14 +18,23 @@ const Form = ({ addEmployee, editEmployee, EmployeeToEdit }) => {
             Name: '',
             Email: '',
             Contact: '',
-            Gender: ''
+            Gender: '',
+            Language: []
         })
     }
 
+    const handleChecked = (e) => {
+        const { value, checked } = e.target;
+
+        checked ?
+            setEmployee({ ...Employee, Language: [...Employee.Language, value] }) :
+            setEmployee({ ...Employee, Language: Employee.Language.filter(e => e !== value) })
+
+    }
 
     return (
         <>
-            <form className='container mx-auto mt-2 border p-4' onSubmit={onSubmit}>
+            <form className='border p-4' onSubmit={onSubmit}>
                 <div className='row'>
                     <div className='col-sm-12 col-md-6'>
                         <label htmlFor="EmployeeID" className='form-label'><b>Employee Id :</b></label>
@@ -46,20 +55,35 @@ const Form = ({ addEmployee, editEmployee, EmployeeToEdit }) => {
                         <input type="number" id='Employeecontact' name='Contact' className='form-control' value={Employee.Contact} onChange={(e) => setEmployee({ ...Employee, Contact: e.target.value })} />
                     </div>
                 </div>
-                <div className='row'>
+                <div className='row mt-2'>
                     <div className='col-sm-12 col-md-6'>
-                    <label htmlFor="Employeeemail" className='form-label d-block'><b>Employee Gender :</b></label>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" className="form-check-input" id="Male" name="Employeegender" value='male' checked={Employee.Gender == 'male'} onChange={(e) => setEmployee({ ...Employee, Gender: e.target.checked? e.target.value: '' })}/>
+                        <label htmlFor="Employeegender" className='form-label d-block'><b>Employee Gender :</b></label>
+                        <div className="form-check form-check-inline">
+                            <input type="radio" className="form-check-input" id="Male" name="Employeegender" value='male' checked={Employee.Gender == 'male'} onChange={(e) => setEmployee({ ...Employee, Gender: e.target.checked ? e.target.value : '' })} />
                             <label className="form-check-label" htmlFor="Male">Male</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" className="form-check-input" id="FeMale" name="Employeegender" value='female' checked={Employee.Gender == 'female'} onChange={(e) => setEmployee({ ...Employee, Gender: e.target.checked? e.target.value: '' })}/>
-                            <label className="form-check-label" htmlFor="FeMale">FeMale</label>
+                        <div className="form-check form-check-inline">
+                            <input type="radio" className="form-check-input" id="Female" name="Employeegender" value='female' checked={Employee.Gender == 'female'} onChange={(e) => setEmployee({ ...Employee, Gender: e.target.checked ? e.target.value : '' })} />
+                            <label className="form-check-label" htmlFor="Female">Female</label>
+                        </div>
+                    </div>
+                    <div className='col-sm-12 col-md-6'>
+                        <label htmlFor="Employeelanguage" className='form-label d-block'><b>Employee Language :</b></label>
+                        <div className="form-check form-check-inline">
+                            <input type="checkbox" className="form-check-input" id="C/C++" name="Employeelanguage" value='C/C++' checked={Employee.Language.some(lang => 'C/C++' == lang)} onChange={handleChecked} />
+                            <label className="form-check-label" htmlFor="C/C++">C / C++</label>
+                        </div>
+                        <div classname="form-check form-check-inline">
+                            <input type="checkbox" className="form-check-input" id="PHP" name="Employeelanguage" value='PHP' checked={Employee.Language.some(lang => 'PHP' == lang)} onChange={handleChecked} />
+                            <label className="form-check-label" htmlFor="PHP">PHP</label>
+                        </div>
+                        <div classname="form-check form-check-inline">
+                            <input type="checkbox" className="form-check-input" id="JAVA" name="Employeelanguage" value='JAVA' checked={Employee.Language.some(lang => 'JAVA' == lang)} onChange={handleChecked} />
+                            <label className="form-check-label" htmlFor="JAVA">JAVA</label>
                         </div>
                     </div>
                 </div>
-                <div className='d-grid mt-4'>
+                <div className='d-grid mt-2'>
                     <button className='btn btn-success btn-lg'>ADD EMPLOYEE</button>
                 </div>
             </form>
