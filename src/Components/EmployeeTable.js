@@ -3,7 +3,7 @@ import Tr from './Tr'
 
 const TableData = ({ Employees, updateEmployee, deleteEmployee }) => {
     return (
-        <>
+        <section className='container my-3'>
             <table className='table table-bordered'>
                 <thead>
                     <tr>
@@ -24,7 +24,7 @@ const TableData = ({ Employees, updateEmployee, deleteEmployee }) => {
                     }
                 </tbody>
             </table>
-        </>
+        </section>
     )
 }
 

@@ -3,7 +3,7 @@ import React from 'react'
 const EmployeeCard = ({employee,updateEmployee,deleteEmployee}) => {
     return (
         <>
-            <div className="card">
+            <div className='card'>
                 <img src={employee.Gender == 'male'? 'https://www.w3schools.com/bootstrap4/img_avatar1.png' : 'https://www.w3schools.com/bootstrap5/img_avatar5.png'} className='card-img-top img-fluid' />
                 <div className='card-body'>
                     <h4 className='card-title'>{employee.Name}</h4>

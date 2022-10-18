@@ -33,7 +33,7 @@ const Form = ({ addEmployee, editEmployee, EmployeeToEdit }) => {
     }
 
     return (
-        <>
+        <section className='container my-3'>
             <form className='border p-4' onSubmit={onSubmit}>
                 <div className='row'>
                     <div className='col-sm-12 col-md-6'>
@@ -73,11 +73,11 @@ const Form = ({ addEmployee, editEmployee, EmployeeToEdit }) => {
                             <input type="checkbox" className="form-check-input" id="C/C++" name="Employeelanguage" value='C/C++' checked={Employee.Language.some(lang => 'C/C++' == lang)} onChange={handleChecked} />
                             <label className="form-check-label" htmlFor="C/C++">C / C++</label>
                         </div>
-                        <div classname="form-check form-check-inline">
+                        <div className="form-check form-check-inline">
                             <input type="checkbox" className="form-check-input" id="PHP" name="Employeelanguage" value='PHP' checked={Employee.Language.some(lang => 'PHP' == lang)} onChange={handleChecked} />
                             <label className="form-check-label" htmlFor="PHP">PHP</label>
                         </div>
-                        <div classname="form-check form-check-inline">
+                        <div className="form-check form-check-inline">
                             <input type="checkbox" className="form-check-input" id="JAVA" name="Employeelanguage" value='JAVA' checked={Employee.Language.some(lang => 'JAVA' == lang)} onChange={handleChecked} />
                             <label className="form-check-label" htmlFor="JAVA">JAVA</label>
                         </div>
@@ -87,7 +87,7 @@ const Form = ({ addEmployee, editEmployee, EmployeeToEdit }) => {
                     <button className='btn btn-success btn-lg'>ADD EMPLOYEE</button>
                 </div>
             </form>
-        </>
+        </section>
     )
 }
 
